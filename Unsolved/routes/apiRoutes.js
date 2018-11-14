@@ -1,24 +1,52 @@
-var db = require("../models");
+var db = require('../models');
 
-module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
-    });
-  });
+module.exports = function(app){
+    app.get('/api/coffee/',function(req,res){
+        db.Coffee.findAll({}).then(function(dbCoffee){
+           res.render('index',{Coffee:dbCoffee})
+        })
+    })
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
+app.get('api/coffee/:id',function(req,res){
+    db.Coffee.findOne({
+        where:{
+            id:req.params.id
+        }
+    }).then(function(dbCoffee){
+        res.render('index',{Coffee:dbCoffee})
+    })
+});
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
-};
+app.post('/api/coffee',function(req,res){
+   db.Coffee.create({
+       name:req.body.name,
+       CoffeeType:req.body.CoffeeType,
+       roast:req.body.roast
+   }).then(function(dbCoffee){
+       res.redirect('/api/coffee')
+   })
+})
+
+app.put('/api/coffee',function(req,res){
+    db.Coffee.update(req.body,
+        {
+            where:{
+                id:req.body.id
+            }
+        }).then(function(dbCoffee){
+            res.redirect('/api/coffee')
+        })
+})
+
+app.delete('/api/coffee/:id',function(req,res){
+    db.Coffee.destroy({
+        where:{
+            id:req.params.id
+        }
+    }).then(function(dbCoffee){
+        res.redirect('/api/coffee') 
+    })
+})
+
+
+}

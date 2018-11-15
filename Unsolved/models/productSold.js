@@ -1,7 +1,7 @@
 module.exports = function(sequelize,Datatypes){
-    var productSold = sequelize.define('Order',{
+    var productSold = sequelize.define('productSold',{
         productId:{
-            type:Datatypes.STRING,
+            type:Datatypes.INTEGER,
             allowNull:false
         },
         orderId:{

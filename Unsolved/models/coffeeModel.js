@@ -21,7 +21,7 @@ module.exports = function (sequelize, Datatypes) {
         },
         productId:{
             type: Datatypes.INTEGER,
-            allowNull: false
+            allowNull: false,
         },
         createdAt: {
             type: Datatypes.STRING,
@@ -35,11 +35,14 @@ module.exports = function (sequelize, Datatypes) {
         freezeTableName: true,
     });
     Coffee.associate = function (models) {
-        //change if needed hasmany?????
         Coffee.hasMany(models.productSold, {
-            onDelete: "cascade"
+            onDelete: "cascade",
+            foreignKey: {
+                allowNull: false
+            }
         });
     };
+    
 
     return Coffee;
 }

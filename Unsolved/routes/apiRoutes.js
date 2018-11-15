@@ -32,6 +32,7 @@ module.exports = function (app) {
     //         res.redirect('/api/coffee')
     //     })
     // })
+    
 
     app.put('/api/coffee', function (req, res) {
         db.Coffee.update(req.body, {

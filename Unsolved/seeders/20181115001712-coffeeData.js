@@ -8,6 +8,7 @@ module.exports = {
         CoffeeType: 'Espresso',
         roast:'Light',
         price: 1.99,
+        productId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
         
@@ -17,6 +18,7 @@ module.exports = {
         CoffeeType: 'Double Espresso',
         roast:'Medium',
         price: 1.99,
+        productId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
         
@@ -26,6 +28,7 @@ module.exports = {
         CoffeeType: 'Short Macchiato',
         price: 1.99,
         roast:'Medium',
+        productId: 3,
         createdAt: new Date(),
         updatedAt: new Date()
         
@@ -35,6 +38,7 @@ module.exports = {
         CoffeeType: 'Long Macchiato',
         price: 1.99,
         roast:'medium dark roasts',
+        productId: 4,
         createdAt: new Date(),
         updatedAt: new Date()
         
@@ -44,6 +48,7 @@ module.exports = {
         CoffeeType: 'Americano',
         roast:'dark',
         price: 1.99,
+        productId: 5,
         createdAt: new Date(),
         updatedAt: new Date()
         
@@ -53,6 +58,7 @@ module.exports = {
         CoffeeType: 'Cafe Latte',
         roast:'Medium',
         price: 1.99,
+        productId: 6,
         createdAt: new Date(),
         updatedAt: new Date()
         
@@ -62,6 +68,7 @@ module.exports = {
         CoffeeType: 'Mocha',
         roast:'dark',
         price: 1.99,
+        productId: 7,
         createdAt: new Date(),
         updatedAt: new Date()
         
@@ -71,6 +78,7 @@ module.exports = {
         CoffeeType: 'Affogato',
         roast:'Light',
         price: 1.99,
+        productId: 8,
         createdAt: new Date(),
         updatedAt: new Date()
         
@@ -80,6 +88,7 @@ module.exports = {
         CoffeeType: 'Flat White',
         roast:'Medium',
         price: 1.99,
+        productId: 9,
         createdAt: new Date(),
         updatedAt: new Date()
         
@@ -89,6 +98,7 @@ module.exports = {
         CoffeeType: 'Ristretto',
         roast:'Dark',
         price: 1.99,
+        productId: 10,
         createdAt: new Date(),
         updatedAt: new Date()
         

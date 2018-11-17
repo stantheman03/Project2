@@ -8,11 +8,11 @@ app.get('/apiCustomer/all',function(req,res){
     })
 })
 
-// keep track of all the orders made by customers
-    app.get('/apiCustomer/:orderId',function(req,res){
-        db.customerModel.findAll({
+// keep track of all the order made by customers by cutsomerID
+    app.get('/apiCustomerOrders/:customerID',function(req,res){
+        db.order.findAll({
             where:{
-                id:req.params.orderId,
+                customer_id:req.params.customerId,
             }
         }).then(function(data){
             res.json(data)

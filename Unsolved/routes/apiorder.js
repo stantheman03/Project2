@@ -11,7 +11,7 @@ module.exports = function(app){
     app.get('/apiOrders/:orderId',function(req,res){
         db.order.findOne({
             where:{
-                orderId:req.params.customerId
+                id:req.params.customerId
             }
         })
     }).then(function(data){

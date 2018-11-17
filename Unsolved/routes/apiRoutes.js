@@ -7,6 +7,15 @@ module.exports = function (app) {
         });
     });
 
+
+    app.get('/:type',function(req,res){
+        db.Coffee.findOne({
+            where:{
+                type:req.params.type
+            }
+        })
+    });
+
 //Create Name of customer, 
     
 

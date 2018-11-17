@@ -10,7 +10,9 @@ app.use(express.urlencoded({
 app.use(express.json());
 app.engine('handlebars',exphbs({defaultLayout:'main'}));
 app.set('view engine','handlebars');
-
+require("./routes/apiproductSold")(app)
+require("./routes/apiorder")(app)
+require('./routes/apiCustomerModel')(app);
 require("./routes/apiRoutes.js")(app);
 require("./routes/htmlRoutes.js")(app);
 

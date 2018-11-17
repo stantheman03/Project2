@@ -1,5 +1,5 @@
 var db = require('../models');
-
+// shows all coffee within database
 module.exports = function (app) {
     app.get('/', function (req, res) {
         db.Coffee.findAll({}).then(function (dbCoffee) {
@@ -7,8 +7,8 @@ module.exports = function (app) {
         });
     });
 
-
-    app.get('/:type',function(req,res){
+    // show coffee by type
+    app.get('/coffee/:type',function(req,res){
         db.Coffee.findOne({
             where:{
                 type:req.params.type
@@ -18,19 +18,7 @@ module.exports = function (app) {
         })
     });
 
-    app.get('/:id',function(req,res){
-        var query = {};
-        if(req.body.productId){
-            query.ProductId = req.body.productId
-
-        }
-        db.Coffee.findAll({
-            where: query,
-            include:[db.productSold]
-        }).then(function(data){
-            res.json(data)
-        })
-    })
+    
 
 
 }

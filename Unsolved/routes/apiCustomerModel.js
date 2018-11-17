@@ -1,33 +1,33 @@
 var db = require('../models');
 
 module.exports = function(app){
-app,get('/apiCustomer',function(req,res){
+    // gets all customers
+app.get('/apiCustomer/all',function(req,res){
     db.customerModel.findAll({}).then(function(data){
         res.json(data)
     })
 })
 
-
+// keep track of all the orders made by customers
     app.get('/apiCustomer/:orderId',function(req,res){
         db.customerModel.findAll({
             where:{
-                orderId:req.params.orderId,
-            },
-            include:[db.order]
+                id:req.params.orderId,
+            }
         }).then(function(data){
             res.json(data)
         })
     })
-
-    app.post('/apiCustomer',function(req,res){
+// create new customer
+    app.post('/apiCustomer/newCustomer',function(req,res){
         db.customerModel.create({
             name:req.body.name
         })
     }).then(function(data){
         res.json(data)
     })
-
-    app.delete('/apiCustomer/',function(req,res){
+    // deletes customers 
+    app.delete('/apiCustomer/deleteCustomer',function(req,res){
         db.customerModel.destroy(req.body,
             {
                 where:{

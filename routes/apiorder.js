@@ -16,8 +16,8 @@ module.exports = function(app){
                 id:req.params.customerId
             },
             include:[db.productSold]
+        }).then(function(data){
+            res.json(data)
         })
-    }).then(function(data){
-        res.json(data)
     })
 }

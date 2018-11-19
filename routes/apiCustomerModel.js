@@ -25,9 +25,11 @@ app.get('/apiCustomer/all',function(req,res){
     app.post('/apiCustomer/newCustomer',function(req,res){
         db.customerModel.create({
             name:req.body.name
+        }).then(function(data){
+            res.json(data)
         })
-    }).then(function(data){
-        res.json(data)
+    // }).then(function(data){
+    //     res.json(data)
     })
     // deletes customers 
     app.delete('/apiCustomer/deleteCustomer',function(req,res){

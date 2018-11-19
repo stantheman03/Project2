@@ -3,7 +3,9 @@ var db = require('../models')
 module.exports = function(app){
     // gets all orders by all customers
     app.get('/apiOrders',function(req,res){
-        db.order.findAll({}).then(function(data){
+        db.order.findAll({
+            include:[db.productSold]
+        }).then(function(data){
             res.json(data)
         })
     });
@@ -12,7 +14,8 @@ module.exports = function(app){
         db.order.findOne({
             where:{
                 id:req.params.customerId
-            }
+            },
+            include:[db.productSold]
         })
     }).then(function(data){
         res.json(data)

@@ -8,10 +8,10 @@ module.exports = function (app) {
     });
 
     // show coffee by type
-    app.get('/coffee/:type',function(req,res){
+    app.get('/coffee/:CoffeeType',function(req,res){
         db.Coffee.findOne({
             where:{
-                type:req.params.type
+                CoffeeType:req.params.CoffeeType
             }
         }).then(function(data){
             res.json(data)

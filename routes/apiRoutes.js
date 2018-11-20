@@ -8,15 +8,15 @@ module.exports = function (app) {
     });
 
     // show coffee by type
-    app.get('/coffee/:CoffeeType',function(req,res){
-        db.Coffee.findOne({
-            where:{
-                CoffeeType:req.params.CoffeeType
-            }
-        }).then(function(data){
-            res.json(data)
-        })
-    });
+    // app.get('/coffee/:CoffeeType',function(req,res){
+    //     db.Coffee.findOne({
+    //         where:{
+    //             CoffeeType:req.params.CoffeeType
+    //         }
+    //     }).then(function(data){
+    //         res.json(data)
+    //     })
+    // });
 
     
 

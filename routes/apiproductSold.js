@@ -1,5 +1,7 @@
 var db = require('../models')
 
+
+ 
 module.exports = function(app){
     app.get('/orderId',function(req,res){
         var query;
@@ -13,6 +15,8 @@ module.exports = function(app){
         })
     });
 
+
+    //Finding the Order by ORDERID Can put this in check out page
     app.get('/productSold:orderId',function(req,res){
         db.productSold.findOne({
             where:{
@@ -25,3 +29,6 @@ module.exports = function(app){
     })
 
 }
+
+
+// Not Needed. Bonus

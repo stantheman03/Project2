@@ -1,28 +1,16 @@
 var db = require('../models');
 
 module.exports = function (app) {
-    // gets all customers
-    app.get('/apiCustomer/all', function (req, res) {
-        db.Customer.findAll({
-            include: [db.order]
-        }).then(function (data) {
-            res.json(data)
-        })
-    })
+    // // gets all customers
+    // app.get('/apiCustomer/all', function (req, res) {
+    //     db.Customer.findAll({
+    //         include: [db.order]
+    //     }).then(function (data) {
+    //         res.json(data)
+    //     })
+    // })
 
-    // keep track of all the order made by customers by cutsomerID 
-   
-    app.get('/apiCustomerOrders/:id', function (req, res) {
-        db.Customer.findAll({
-            where: {
-                id: req.params.id,
-            },
-            include: [db.order]
-        }).then(function (data) {
-            res.json(data)
-        })
-    })
-    // create new customer
+    // create new customer in the database
     app.post('/apiCustomer/newCustomer', function (req, res) {
         db.Customer.create({
             name: req.body.name
@@ -31,7 +19,7 @@ module.exports = function (app) {
         })
     })
     
-    // deletes customers 
+    // deletes customers  for the backend to get the information out of the database after creating
     app.delete('/apiCustomer/deleteCustomer', function (req, res) {
         db.Customer.destroy(req.body, {
             where: {

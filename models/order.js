@@ -13,15 +13,14 @@ module.exports = function(sequelize,Datatypes){
             foreignKey: {
                 allowNull: false
             }
-        });
-    };
-    order.associate = function (models){
+        }),
         order.hasMany(models.Customer,{
             foreignKey: {
                 allowNull: false
             }
-        })
-    }
+        });
+    };
+    
     return order;
   }
   

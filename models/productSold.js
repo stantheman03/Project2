@@ -1,12 +1,12 @@
-module.exports = function(sequelize,Datatypes){
-    var productSold = sequelize.define('productSold',{
-        productId:{
-            type:Datatypes.INTEGER,
-            allowNull:false
+module.exports = function (sequelize, Datatypes) {
+    var productSold = sequelize.define('productSold', {
+        productId: {
+            type: Datatypes.INTEGER,
+            allowNull: false
         },
-        orderId:{
-            type:Datatypes.INTEGER,
-            allowNull:false
+        orderId: {
+            type: Datatypes.INTEGER,
+            allowNull: false
         },
         createdAt: {
             type: Datatypes.STRING,
@@ -16,26 +16,22 @@ module.exports = function(sequelize,Datatypes){
             type: Datatypes.STRING,
             allowNull: false
         }
-    },
-    {
-      freezeTableName: true,
+    }, {
+        freezeTableName: true,
     });
-    productSold.associate = function(models){
-        productSold.belongsTo(models.Coffee,{
-            foreignKey: {
-                allowNull: false
-            }
-        });
+    productSold.associate = function (models) {
+        productSold.belongsTo(models.Coffee, {
+                foreignKey: {
+                    allowNull: false
+                }
+            }),
+            productSold.hasMany(models.order, {
+                foreignKey: {
+                    allowNull: false
+                }
+            })
     };
 
-    productSold.associate = function (models){
-        productSold.hasMany(models.order,{
-            foreignKey: {
-                allowNull: false
-            }
-        })
-    }
-  
+
     return productSold;
-  }
-  
+}

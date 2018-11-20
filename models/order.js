@@ -1,20 +1,15 @@
 module.exports = function(sequelize,Datatypes){
-    var order = sequelize.define('order',{
-        customerId:{
-            type:Datatypes.INTEGER,
-            allowNull:false
-        }
-    },
+    var order = sequelize.define('order',{},
     {
       freezeTableName: true,
     });
     order.associate = function(models){
-        order.belongsTo(models.productSold,{
+        order.hasMany(models.productSold,{
             foreignKey: {
                 allowNull: false
             }
         }),
-        order.hasMany(models.Customer,{
+        order.belongsTo(models.Customer,{
             foreignKey: {
                 allowNull: false
             }

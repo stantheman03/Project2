@@ -18,18 +18,6 @@ module.exports = function (sequelize, Datatypes) {
         price: {
             type: Datatypes.FLOAT,
             allowNull: false
-        },
-        productId:{
-            type: Datatypes.INTEGER,
-            allowNull: false,
-        },
-        createdAt: {
-            type: Datatypes.STRING,
-            allowNull: false
-        },
-        updatedAt: {
-            type: Datatypes.STRING,
-            allowNull: false
         }
     }, {
         freezeTableName: true,

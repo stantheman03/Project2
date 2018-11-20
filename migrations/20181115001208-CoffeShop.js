@@ -21,13 +21,12 @@ module.exports = {
      },
      price:{
        type:Sequelize.FLOAT
-     },
-     productId:{
-       type:Sequelize.INTEGER
-       
      }
    })
  },
+
+
+ 
 
  down: (queryInterface, Sequelize) => {
 

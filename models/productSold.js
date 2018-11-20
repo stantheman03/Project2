@@ -1,19 +1,7 @@
 module.exports = function (sequelize, Datatypes) {
     var productSold = sequelize.define('productSold', {
-        productId: {
+        quantity: {
             type: Datatypes.INTEGER,
-            allowNull: false
-        },
-        orderId: {
-            type: Datatypes.INTEGER,
-            allowNull: false
-        },
-        createdAt: {
-            type: Datatypes.STRING,
-            allowNull: false
-        },
-        updatedAt: {
-            type: Datatypes.STRING,
             allowNull: false
         }
     }, {
@@ -25,7 +13,7 @@ module.exports = function (sequelize, Datatypes) {
                     allowNull: false
                 }
             }),
-            productSold.hasMany(models.order, {
+            productSold.belongsTo(models.order, {
                 foreignKey: {
                     allowNull: false
                 }

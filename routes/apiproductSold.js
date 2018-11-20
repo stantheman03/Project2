@@ -1,11 +1,11 @@
 var db = require('../models')
 
 module.exports = function(app){
-    app.get('/productSold',function(req,res){
+    app.get('/orderId',function(req,res){
         var query;
-        if(req.body.productId)
-        query.productId = req.body.productId
-        db.productSold.findAll({
+        if(req.body.orderId)
+        query.orderId = req.body.orderId
+        db.orderId.findAll({
             where:query,
             include:[db.Coffee]
         }).then(function(data){
@@ -13,10 +13,10 @@ module.exports = function(app){
         })
     });
 
-    app.get('/productSold:productId',function(req,res){
+    app.get('/productSold:orderId',function(req,res){
         db.productSold.findOne({
             where:{
-                productId:req.params.productId
+                orderId:req.params.orderId
             },
             include:[db.Coffee]
         }).then(function(data){

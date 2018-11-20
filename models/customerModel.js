@@ -6,25 +6,13 @@ module.exports = function(sequelize,Datatypes){
             validate:{
                 isAlpha:true
             }
-        },
-        createdAt:{
-            type:Datatypes.STRING,
-            allowNull:false
-        },
-        updatedAt:{
-            type:Datatypes.STRING,
-            allowNull:false
-        },
-        orderId:{
-            type:Datatypes.INTEGER,
-            allowNull:false
         }
     },
     {
       freezeTableName: true,
     });
     Customer.associate = function(models){
-        Customer.belongsTo(models.order,{
+        Customer.hasMany(models.order,{
             foreignKey: {
                 allowNull: false
             }

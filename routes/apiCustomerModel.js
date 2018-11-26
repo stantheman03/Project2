@@ -1,14 +1,14 @@
 var db = require('../models');
 
 module.exports = function (app) {
-    // // gets all customers
-    // app.get('/apiCustomer/all', function (req, res) {
-    //     db.Customer.findAll({
-    //         include: [db.order]
-    //     }).then(function (data) {
-    //         res.json(data)
-    //     })
-    // })
+    // gets all customers
+    app.get('/apiCustomer/all', function (req, res) {
+        db.Customer.findAll({
+            include: [db.order]
+        }).then(function (data) {
+            res.json(data)
+        })
+    })
 
     // create new customer in the database
     app.post('/apiCustomer/newCustomer', function (req, res) {

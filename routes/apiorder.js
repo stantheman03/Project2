@@ -4,7 +4,10 @@ module.exports = function(app){
     // Finds ALL ORDERS
     app.get('/apiOrders',function(req,res){
         db.order.findAll({
-            include:[db.productSold]
+           where : {
+               name:req.body.name
+           },
+           include:[db.Customer]
         }).then(function(data){
             res.json(data)
         })

@@ -45,105 +45,37 @@
         </div>
       </nav>
    <div class="container">
-       <div class="col-sm-4">
-           <h3>Cup of Joe:</h3>
-           <form id="customerForm">
+       <div class="card-body">
+           <form action="" method="POST" role="form">
                <div class="form-group">
-                   <label for="Name">Name:</label>
-                   <input type="text" class="form-control" id="username" placeholder="enter a name">
+                   <br><br>
+                   <label for="">Name</label>
+                   <input type="text" class="form-control" id="name" placeholder="Enter a Name !!">
                </div>
-               <button type="submit" class="btn btn-default" href="">Submit</button>
+               <button type="submit" class="btn btn-primary btn-md" id="add-btn">Submit</button>
+
            </form>
-       <div>
        </div>
    </div>
 </body>
 </html>
 <script>
-$("#customerForm").submit(function(event){
-   event.preventDefault();
-   ajaxPost();
-})
-function ajaxPost(){
-   var newCustomer = {
-       name: $("username").val()
-   }
-   $.post('/apiCustomer/newCustomer',newCustomer).then(function(){
-       // create a new username to begin access to app
-       var row = $('<div>');
-           row.addClass("username-1");
-           row.append("<p>" + newCustomer.name + "New user </p>")
-           $("#ResultsDiv").prepend(row);
-   })
-   resetData();
-}
-function resetData(){
-   $("username").val("")
-}
-$("#allCustomers").on('click',function(event){
-   event.preventDefault()
-   ajaxGet();
-   function ajaxGet(){
-       // this call gives all current users
-       $.get("/apiCustomers/all",function(data){
-           if(data.length !=0){
-               for(var i =0;i<data.length;i++){
-                   var newRow = $("<div>")
-                       newRow.addClass("all-usernames");
-                       newRow.append("<p>" + data[i].length + 'all current users </p>')
-                       $("getResultDiv").prepend(newRow)
-               }
-           }
-       })
-   }
+$("#add-btn").on("click",function(event){
+    event.preventDefault();
+
+    var newCustomer = {
+        name:$("#name").val().trim()
+    };
+    $.post("/apiCustomer/newCustomer",newCustomer).then(function(data){
+        console.log(data)
+    });
+
+    $("#name").val("")
 })
 </script>
     
 </body>
 </html>
-
-<script>
-$("#customerForm").submit(function(event){
-    event.preventDefault();
-    ajaxPost();
-})
-
-function ajaxPost(){
-    var newCustomer = {
-        name: $("username").val()
-    }
-    $.post('/apiCustomer/newCustomer',newCustomer).then(function(){
-        // create a new username to begin access to app
-        var row = $('<div>');
-            row.addClass("username-1");
-            row.append("<p>" + newCustomer.name + "New user </p>")
-            $("#ResultsDiv").prepend(row);
-    })
-    resetData();
-}
-function resetData(){
-    $("username").val("")
-}
-
-$("#allCustomers").on('click',function(event){
-    event.preventDefault()
-    ajaxGet();
-
-    function ajaxGet(){
-        // this call gives all current users
-        $.get("/apiCustomers/all",function(data){
-            if(data.length !=0){
-                for(var i =0;i<data.length;i++){
-                    var newRow = $("<div>")
-                        newRow.addClass("all-usernames");
-                        newRow.append("<p>" + data[i].length + 'all current users </p>')
-                        $("getResultDiv").prepend(newRow)
-                }
-            }
-        })
-    }
-})
-</script>
 
 <style>
 body { 

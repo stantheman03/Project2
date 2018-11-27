@@ -2,7 +2,7 @@ var db = require('../models');
 
 module.exports = function (app) {
     // gets all customers
-    app.get("/apiCustomer/all", function (req, res) {
+    app.get('/apiCustomer/all', function (req, res) {
         db.Customer.findAll({
             include: [db.order]
         }).then(function (data) {

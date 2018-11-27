@@ -1,7 +1,7 @@
 var db = require('../models')
 
 module.exports = function(app){
-    // Finds ALL CUSTOMERS
+    // Finds ALL ORDERS
     app.get('/apiOrders',function(req,res){
         db.order.findAll({
             include:[db.productSold]

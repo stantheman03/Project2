@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cup of Joe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>Your Shopping Cart</h1>
+            <div id="cart-container">
+                <div id="cart">
+                    <i class="fa fa-shopping-cart fa-2x openCloseCart" aria-hidden="true"></i>
+                    <button id="emptyCart">Empty Cart</button>
+                </div>
+                <span id="itemCount"></span>
+            </div>
+        </header>
+
+        <div id="shoppingCart">
+            <div id="cartItemsContainer">
+                <h2>Items in your cart</h2>
+                <i class="fa fa-times-circle fa-3x openCloseCart" aria-hidden="true"></i>
+                <div id="cartItems"></div>
+                <span id="cartTotal"></span>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Shopping Cart</a></li>
+            </ul>
+        </nav>
+
+        <div class="item">
+            <div class="itemDetails">
+                <div class="itemImage">
+                   
+                </div>
+                <div class="itemText">
+                    <p class="price-container">Price: $<span class="price">10</span></p>
+                    <p>Short Black</p>
+                </div>
+            </div>
+            <button class="add">Add to cart</button>
+        </div>
+
+        <div class="item">
+            <div class="itemDetails">
+                <div class="itemImage">
+                    
+                </div>
+                <div class="itemText">
+                    <p class="price-container">Price: $<span class="price">10</span></p>
+                    <p>New Zealand Black</p>
+                </div>
+            </div>
+            <button class="add">Add to cart</button>
+        </div>
+
+        <div class="item">
+            <div class="itemDetails">
+                <div class="itemImage">
+                    
+                </div>
+                <div class="itemText">
+                    <p class="price-container">Price: $<span class="price">10</span></p>
+                    <p>Doppio</p>
+                </div>
+            </div>
+            <button class="add">Add to cart</button>
+        </div>
+
+        <div class="item">
+            <div class="itemDetails">
+                <div class="itemImage">
+                    
+                </div>
+                <div class="itemText">
+                    <p class="price-container">Price: $<span class="price">10</span></p>
+                    <p>Shorty</p>
+                </div>
+            </div>
+            <button class="add">Add to cart</button>
+        </div>
+
+        <div class="item">
+            <div class="itemDetails">
+                <div class="itemImage">
+                    
+                </div>
+                <div class="itemText">
+                    <p class="price-container">Price: $<span class="price">10</span></p>
+                    <p>Heavy</p>
+                </div>
+            </div>
+            <button class="add">Add to cart</button>
+        </div>
+
+        <div class="item">
+            <div class="itemDetails">
+                <div class="itemImage">
+                    
+                </div>
+                <div class="itemText">
+                    <p class="price-container">Price: $<span class="price">10</span></p>
+                    <p>Long Black</p>
+                </div>
+            </div>
+            <button class="add">Add to cart</button>
+        </div>
+
+        <div class="item">
+            <div class="itemDetails">
+                <div class="itemImage">
+                    
+                </div>
+                <div class="itemText">
+                    <p class="price-container">Price: $<span class="price">10</span></p>
+                    <p>Cafe</p>
+                </div>
+            </div>
+            <button class="add">Add to cart</button>
+        </div>
+
+        <div class="item">
+            <div class="itemDetails">
+                <div class="itemImage">
+                    
+                </div>
+                <div class="itemText">
+                    <p class="price-container">Price: $<span class="price">10</span></p>
+                    <p>Afternoon Delight</p>
+                </div>
+            </div>
+            <button class="add">Add to cart</button>
+        </div>
+
+        <div class="item">
+            <div class="itemDetails">
+                <div class="itemImage">
+                   
+                </div>
+                <div class="itemText">
+                    <p class="price-container">Price: $<span class="price">15</span></p>
+                    <p>Sweet Teeth</p>
+                </div>
+            </div>
+            <button class="add">Add to cart</button>
+        </div>
+
+        <div class="item">
+            <div class="itemDetails">
+                <div class="itemImage">
+                    
+                </div>
+                <div class="itemText">
+                    <p class="price-container">Price: $<span class="price">20</span></p>
+                    <p>Breakfast Starter</p>
+                </div>
+            </div>
+            <button class="add">Add to cart</button>
+        </div>
+    </main>
+
+
+
+</body>
+
+<script>
+    var itemCount = 0;
+    var priceTotal = 0;
+
+
+
+    // Add Item to Cart
+    $('.add').click(function () {
+        itemCount++;
+
+        $('#itemCount').text(itemCount).css('display', 'block');
+        $(this).siblings().clone().appendTo('#cartItems').append(
+            '<button class="removeItem">Remove Item</button>');
+
+        // Calculate Total Price
+        var price = parseInt($(this).siblings().find('.price').text());
+        priceTotal += price;
+        $('#cartTotal').text("Total: $" + priceTotal);
+    });
+
+
+
+    // Hide and Show Cart Items
+    $('.openCloseCart').click(function () {
+        $('#shoppingCart').toggle();
+    });
+
+
+    // Empty Cart
+    $('#emptyCart').click(function () {
+        itemCount = 0;
+        priceTotal = 0;
+
+        $('#itemCount').css('display', 'none');
+        $('#cartItems').text('');
+        $('#cartTotal').text("Total: $" + priceTotal);
+    });
+
+
+
+    // Remove Item From Cart
+    $('#shoppingCart').on('click', '.removeItem', function () {
+        $(this).parent().remove();
+        itemCount--;
+        $('#itemCount').text(itemCount);
+
+        // Remove Cost of Deleted Item from Total Price
+        var price2 = parseInt($(this).siblings().find('.price').text());
+        priceTotal -= price2;
+        $('#cartTotal').text("Total: $" + priceTotal);
+
+        if (itemCount == 0) {
+            $('#itemCount').css('display', 'none');
+        }
+    });
+</script>
+
+</html>

@@ -4,75 +4,86 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
    
       return queryInterface.bulkInsert('Coffee', [{
-        name: 'Short Black',
-        CoffeeType: 'Espresso',
+        name: 'Caffee Latte',
+        CoffeeType: 'Latte',
         roast:'Light',
-        price: 1.99
+        price: 4.15
         
       },
       {
-        name: 'Doppio',
-        CoffeeType: 'Double Espresso',
+        name: 'Caffee Mocha',
+        CoffeeType: 'Mocha',
         roast:'Medium',
-        price: 1.99
+        price: 4.65
         
       },
       {
-        name: 'Shorty',
-        CoffeeType: 'Short Macchiato',
-        price: 1.99,
+        name: 'White Chocolate Mocha',
+        CoffeeType: 'Mocha',
+        price: 4.75,
         roast:'Medium'
         
       },
       {
-        name: 'Heavy',
-        CoffeeType: 'Long Macchiato',
-        price: 1.99,
-        roast:'medium dark roasts'
+        name: 'Freshly Brewed Coffee',
+        CoffeeType: 'Changes Daily',
+        price: 2.45,
+        roast:'Light/Medium/Dark'
      
         
       },
       {
-        name: 'Long Black',
-        CoffeeType: 'Americano',
-        roast:'dark',
-        price: 1.99
-    
-        
-      },
-      {
-        name: 'Cafe',
-        CoffeeType: 'Cafe Latte',
+        name: 'Cinnamon Dolce Latte',
+        CoffeeType: 'Espresso',
         roast:'Medium',
-        price: 1.99
+        price: 4.65
       },
       {
-        name: 'Afternoon Delight',
-        CoffeeType: 'Mocha',
+        name: 'Skinny Vanilla Latte',
+        CoffeeType: 'Latte',
         roast:'dark',
-        price: 1.99
+        price: 4.65
         
       },
       {
-        name: 'Sweet Teeth',
-        CoffeeType: 'Affogato',
+        name: 'Caramel Macchiato',
+        CoffeeType: 'Espresso',
         roast:'Light',
-        price: 1.99
+        price: 4.75
       },
       {
-        name: 'New Zealand Black',
-        CoffeeType: 'Flat White',
+        name: 'Caramel Flan Latte',
+        CoffeeType: 'Latte',
         roast:'Medium',
-        price: 1.99
+        price: 4.75
         
       },
       {
-        name: 'Breakfast Starter',
-        CoffeeType: 'Ristretto',
+        name: 'Flat White',
+        CoffeeType: 'Espresso',
         roast:'Dark',
-        price: 1.99
+        price: 3.75
         
-      }
+      },   {
+        name: 'Skinny Peppermint Mocha',
+        CoffeeType: 'Mocha',
+        roast:'Light',
+        price: 4.95
+      },
+      {
+        name: 'Mocha Frappuccino',
+        CoffeeType: 'Mocha',
+        roast:'Medium',
+        price: 4.75
+        
+      },
+      {
+        name: 'Vanilla Bean Crème Frappuccino',
+        CoffeeType: 'Espresso',
+        roast:'Dark',
+        price: 3.75
+        
+      },
     
     ]);  
   
